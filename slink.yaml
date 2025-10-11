@@ -1,0 +1,38 @@
+services:
+  slink:
+    image: anirdev/slink:latest
+    container_name: slink
+    # This container runs as root user by default. Uncomment the "user: slink" line below to run as non-root user.
+    # See https://docs.slinkapp.io/reference/04-non-root-container-user/ for additional details.
+    # user: slink
+    environment:
+      # Your timezone
+      - TZ=UTC
+
+      # Your application hostname (Required for cookies)
+      # - ORIGIN="https://slink.example.com"
+
+      # Require user approval before they can upload images
+      - USER_APPROVAL_REQUIRED=false
+
+      # User password requirements
+      - USER_PASSWORD_MIN_LENGTH=5
+      - USER_PASSWORD_REQUIREMENTS=15 # bitmask of requirements
+
+      # Maximum image size allowed to be uploaded (no more than 50M)
+      - IMAGE_MAX_SIZE=40M
+
+      # Image processing settings
+      - IMAGE_STRIP_EXIF_METADATA=false
+      - IMAGE_COMPRESSION_QUALITY=100
+
+      # Storage provider to use (may require additional configuration variables for different providers, see below)
+      - STORAGE_PROVIDER=local
+    volumes:
+      # Persist the database
+      - ./data:/app/var/data
+      # Persist the uploaded images
+      - ./images:/app/slink/images
+    ports:
+      # Expose the application on port 3000
+      - '3000:3000'
