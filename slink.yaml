@@ -16,7 +16,7 @@ services:
       - USER_APPROVAL_REQUIRED=false
 
       # User password requirements
-      - USER_PASSWORD_MIN_LENGTH=6
+      - USER_PASSWORD_MIN_LENGTH=5
       - USER_PASSWORD_REQUIREMENTS=15 # bitmask of requirements
 
       # Maximum image size allowed to be uploaded (no more than 50M)
