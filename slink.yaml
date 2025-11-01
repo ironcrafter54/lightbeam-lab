@@ -10,7 +10,7 @@ services:
       - TZ=UTC
 
       # Your application hostname (Required for cookies)
-      # - ORIGIN="https://slink.example.com"
+      - ORIGIN="https://gallery.liambrown.photography"
 
       # Require user approval before they can upload images
       - USER_APPROVAL_REQUIRED=false
