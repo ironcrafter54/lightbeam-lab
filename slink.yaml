@@ -35,4 +35,4 @@ services:
       - ./images:/app/slink/images
     ports:
       # Expose the application on port 3000
-      - '3000:3000'
+      - '3200:3000'
